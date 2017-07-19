@@ -556,4 +556,81 @@ if !g:remoteSession
   let g:airline_powerline_fonts=1
 endif
 
+" ==================== Tagbar    =========================
+nmap <F8> :TagbarToggle<CR>
+
+" ==================== Tagbar    =========================
+let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
+let g:tagbar_type_go =
+   \{
+   \  'ctagstype' : 'go',
+   \  'kinds'     : [
+   \     'p:package',
+   \     'i:imports:1',
+   \     'c:constants',
+   \     'v:variables',
+   \     't:types',
+   \     'n:interfaces',
+   \     'w:fields',
+   \     'e:embedded',
+   \     'm:methods',
+   \     'r:constructor',
+   \     'f:functions'
+   \  ],
+   \  'sro' : '.',
+   \  'kind2scope' : {
+   \     't' : 'ctype',
+   \     'n' : 'ntype'
+   \  },
+   \ 'scope2kind' : {
+   \     'ctype' : 't',
+   \     'ntype' : 'n'
+   \ },
+   \ 'ctagsbin'  : 'gotags',
+   \ 'ctagsargs' : '-sort -silent'
+   \ }
+
+" ==================== syntastic =========================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_python_exec = '/opt/boxen/homebrew/bin/python'
+" Disabling Syntastic Checks in favor of Pymode Checks
+let g:loaded_syntastic_python_pylint_checker = 0
+
+let g:syntastic_puppet_checkers=['puppetlint']
+
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+let g:syntastic_java_maven_executable='/opt/boxen/homebrew/bin/mvn'
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
+
+let g:syntastic_sh_checker_args='-x'
+
+" Syntastic fails for scala, we are disabling it for now.
+let g:syntastic_mode_map =
+  \{
+  \  'mode': 'active',
+  \  'active_filetypes': ['c','go','python','ruby','ruby.chef'],
+  \  'passive_filetypes': ['scala']
+  \}
+
+function! FindConfig(prefix, what, where, join_by)
+    let cfg = findfile(a:what, escape(a:where, ' ') . ';')
+    return cfg !=# '' ? ' ' . a:prefix . a:join_by . shellescape(cfg) : ''
+endfunction
+
+" autocmd FileType python let b:syntastic_python_flake8_args =
+"     \ get(g:, 'syntastic_python_flake8_args', '') .
+"     \ FindConfig('--config', 'tox.ini', expand('<afile>:p:h', 1), '=')
+
+
+
 " vim:ts=2:sw=2:et
