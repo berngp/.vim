@@ -10,11 +10,12 @@ filetype plugin indent on    " required
 "
 " Settings
 "
-set noerrorbells                " No beeps
-set number                      " Show line numbers
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-set showcmd                     " Show me what I'm typing
-set showmode                    " Show current mode.
+set backspace=indent,eol,start     " Makes backspace key more powerful.
+set clipboard=unnamed              " share windows clipboard
+set noerrorbells visualbell t_vb=  " No beep
+set number                         " Show line numbers
+set showcmd                        " Show me what I'm typing
+set showmode                       " Show current mode.
 
 set noswapfile                  " Don't use swapfile
 set nobackup					          " Don't create annoying backup files
@@ -172,6 +173,11 @@ endif
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+
 " let g:hybrid_use_Xresources = 1
 " let g:rehash256 = 1
 colorscheme solarized
