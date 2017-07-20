@@ -19,6 +19,7 @@
 [submodule "bundle/vim-indent-lines"]
     path = bundle/vim-indent-lines
 	url = https://github.com/Yggdroot/indentLine.git
+	ignore = dirty
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -102,3 +103,24 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/nerdtree-chmod"]
+	path = bundle/nerdtree-chmod
+	url = git@github.com:EvanDotPro/nerdtree-chmod.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "bundle/vim-fireplace"]
+	path = bundle/vim-fireplace
+	url = git@github.com:tpope/vim-fireplace.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "bundle/vim-dispatch"]
+	path = bundle/vim-dispatch
+	url = git@github.com:tpope/vim-dispatch.git
+[submodule "bundle/syntastic-extras"]
+	path = bundle/syntastic-extras
+	url = git@github.com:myint/syntastic-extras.git
