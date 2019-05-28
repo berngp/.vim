@@ -12,7 +12,9 @@ filetype plugin indent on    " required
 "
 set backspace=indent,eol,start     " Makes backspace key more powerful.
 set clipboard=unnamed              " share windows clipboard
-set noerrorbells visualbell t_vb=  " No beep
+" set noerrorbells visualbell t_vb=  " No beep
+set visualbell
+set noerrorbells
 set number                         " Show line numbers
 set showcmd                        " Show me what I'm typing
 set showmode                       " Show current mode.
@@ -322,14 +324,16 @@ endif
 " File Type settings 			    		"
 " ----------------------------------------- "
 
-au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
-au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
-au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
-au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.jade setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
+au BufNewFile,BufRead *.rb setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
+au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
+
 
 augroup filetypedetect
   au BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
@@ -388,6 +392,8 @@ set wildignore+=go/bin-vagrant               " Go bin-vagrant files
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 
+" Search selection - exact match
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 
 " ----------------------------------------- "
 " Plugin configs 			    			"
@@ -498,7 +504,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ==================== vim-json ====================
-let g:vim_json_syntax_conceal = 0
+" let g:vim_json_syntax_conceal = 0
 
 " ==================== Completion =========================
 " use deoplete for Neovim.
@@ -596,6 +602,9 @@ let g:tagbar_type_go =
    \ 'ctagsargs' : '-sort -silent'
    \ }
 
+" ==================== Vim Rooter =========================
+let g:rooter_patterns = ['Rakefile', '.git/', 'sbtw', 'gradlew']
+
 " ==================== syntastic =========================
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -603,12 +612,12 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_python_exec = '/opt/boxen/homebrew/bin/python'
 " Disabling Syntastic Checks in favor of Pymode Checks
-let g:loaded_syntastic_python_pylint_checker = 0
+" let g:loaded_syntastic_python_pylint_checker = 0
 
 let g:syntastic_puppet_checkers=['puppetlint']
 
@@ -623,9 +632,9 @@ let g:syntastic_sh_checker_args='-x'
 " Syntastic fails for scala, we are disabling it for now.
 let g:syntastic_mode_map =
   \{
-  \  'mode': 'active',
-  \  'active_filetypes': ['c','go','python','ruby','ruby.chef'],
-  \  'passive_filetypes': ['scala']
+  \  'mode': 'passive',
+  \  'active_filetypes': ['c','go','python' ],
+  \  'passive_filetypes': ['scala', 'ruby', 'ruby.chef']
   \}
 
 function! FindConfig(prefix, what, where, join_by)
@@ -637,6 +646,8 @@ endfunction
 "     \ get(g:, 'syntastic_python_flake8_args', '') .
 "     \ FindConfig('--config', 'tox.ini', expand('<afile>:p:h', 1), '=')
 
+" Remove a warning that YouCompleteMe is causing.
+silent! py3 pass
 
 
 " vim:ts=2:sw=2:et

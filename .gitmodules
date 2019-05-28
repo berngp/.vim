@@ -103,6 +103,7 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+	ignore = dirty
 [submodule "bundle/nerdtree-chmod"]
 	path = bundle/nerdtree-chmod
 	url = git@github.com:EvanDotPro/nerdtree-chmod.git
@@ -124,3 +125,24 @@
 [submodule "bundle/syntastic-extras"]
 	path = bundle/syntastic-extras
 	url = git@github.com:myint/syntastic-extras.git
+[submodule "bundle/vim-rooter"]
+	path = bundle/vim-rooter
+	url = git@github.com:airblade/vim-rooter.git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "bundle/vim-ruby-refactoring"]
+	path = bundle/vim-ruby-refactoring
+	url = git@github.com:ecomba/vim-ruby-refactoring.git
+[submodule "bundle/vim-rspec"]
+	path = bundle/vim-rspec
+	url = git@github.com:thoughtbot/vim-rspec.git
+[submodule "bundle/nerdtree-git-plugin"]
+	path = bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "bundle/ri.vim"]
+	path = bundle/ri.vim
+	url = git@github.com:danchoi/ri.vim.git
+[submodule "bundle/kotlin-vim"]
+	path = bundle/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
