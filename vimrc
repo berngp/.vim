@@ -172,7 +172,7 @@ if has('gui_running')
   set regexpengine=1
   syntax enable
 endif
-set background=dark
+" set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
@@ -615,7 +615,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_python_exec = '/opt/boxen/homebrew/bin/python'
+" let g:syntastic_python_python_exec = '/opt/boxen/homebrew/bin/python'
+" let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+" let g:ycm_python_binary_path = '/usr/local/bin/python3'
+
 " Disabling Syntastic Checks in favor of Pymode Checks
 " let g:loaded_syntastic_python_pylint_checker = 0
 

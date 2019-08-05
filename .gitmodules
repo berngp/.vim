@@ -100,10 +100,6 @@
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = git@github.com:vim-ruby/vim-ruby.git
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
-	ignore = dirty
 [submodule "bundle/nerdtree-chmod"]
 	path = bundle/nerdtree-chmod
 	url = git@github.com:EvanDotPro/nerdtree-chmod.git
@@ -146,3 +142,9 @@
 [submodule "bundle/kotlin-vim"]
 	path = bundle/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "bundle/yats.vim"]
+	path = bundle/yats.vim
+	url = git@github.com:HerringtonDarkholme/yats.vim.git
