@@ -652,5 +652,7 @@ endfunction
 " Remove a warning that YouCompleteMe is causing.
 silent! py3 pass
 
+" fzf https://vimawesome.com/plugin/fzf
+set rtp+=/usr/local/opt/fzf
 
 " vim:ts=2:sw=2:et
