@@ -151,3 +151,18 @@
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "bundle/vim-solarized8"]
+	path = bundle/vim-solarized8
+	url = git@github.com:lifepillar/vim-solarized8.git
+[submodule "bundle/editorconfig-vim"]
+	path = bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "bundle/base16-vim"]
+	path = bundle/base16-vim
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "bundle/gruvbox"]
+	path = bundle/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
+[submodule "bundle/vim-buffer-history"]
+	path = bundle/vim-buffer-history
+	url = git@github.com:dhruvasagar/vim-buffer-history.git

@@ -61,7 +61,7 @@ autocmd FileType help wincmd L
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-"set colorcolumn=79
+"set colorcolumn=119
 "set relativenumber
 "set norelativenumber
 
@@ -164,7 +164,6 @@ if has("autocmd")
 else
 endif " has("autocmd")
 
-
 syntax enable
 if has('gui_running')
   set transparency=3
@@ -172,19 +171,19 @@ if has('gui_running')
   set regexpengine=1
   syntax enable
 endif
-" set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 set cursorline
 
+set termguicolors
+" colorscheme solarized8
+" colorscheme base16-default-dark
+colorscheme gruvbox
+
 " let g:hybrid_use_Xresources = 1
 " let g:rehash256 = 1
-colorscheme solarized
-set guifont=Inconsolata:h15
-set guioptions-=L
+" set guifont=Inconsolata:h15
+" set guioptions-=L
 
 " This comes first, because we have mappings that depend on leader
 " With a map leader it's possible to do extra key combinations
@@ -313,9 +312,9 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
-" set 80 character line limit
+" set 120 character line limit
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=120
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -644,7 +643,6 @@ function! FindConfig(prefix, what, where, join_by)
     let cfg = findfile(a:what, escape(a:where, ' ') . ';')
     return cfg !=# '' ? ' ' . a:prefix . a:join_by . shellescape(cfg) : ''
 endfunction
-
 " autocmd FileType python let b:syntastic_python_flake8_args =
 "     \ get(g:, 'syntastic_python_flake8_args', '') .
 "     \ FindConfig('--config', 'tox.ini', expand('<afile>:p:h', 1), '=')
