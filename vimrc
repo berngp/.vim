@@ -59,7 +59,7 @@ autocmd FileType help wincmd L
 
 " Make Vim to handle long lines nicely.
 set wrap
-set textwidth=79
+set textwidth=80
 set formatoptions=qrn1
 "set colorcolumn=119
 "set relativenumber
@@ -147,8 +147,8 @@ if has("autocmd")
   augroup vimrcEx
     au!
 
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth'
+    autocmd FileType text setlocal textwidth=80
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -179,6 +179,7 @@ set termguicolors
 " colorscheme solarized8
 " colorscheme base16-default-dark
 colorscheme gruvbox
+
 
 " let g:hybrid_use_Xresources = 1
 " let g:rehash256 = 1
@@ -364,6 +365,9 @@ autocmd FileType gitconfig,sh,toml set noexpandtab
 
 " python indent
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
+
+" markdown indent
+autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 smarttab expandtab
 
 " toml settings
 au BufRead,BufNewFile MAINTAINERS set ft=toml
