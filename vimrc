@@ -1,4 +1,4 @@
-" load plugins
+"""   load plugins
 execute pathogen#infect()
 call pathogen#helptags()
 
@@ -178,6 +178,7 @@ set cursorline
 set termguicolors
 " colorscheme solarized8
 " colorscheme base16-default-dark
+" colorscheme nofrils-dark
 colorscheme gruvbox
 
 
@@ -510,22 +511,39 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " let g:vim_json_syntax_conceal = 0
 
 " ==================== Completion =========================
-" use deoplete for Neovim.
+" https://vimawesome.com/plugin/autocomplete-flow
+let g:autocomplete_flow#insert_paren_after_function = 1
+
+" ultisnips
+" Track the engine.
+" Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+" Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" ==================== deoplete for Neovim. =========================
+let g:deoplete#enable_at_startup = 1
+" g:deoplete#ignore_sources is deprecated
+" let g:deoplete#ignore_sources = {}
+" let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
+let g:deoplete#sources#go#align_class = 1
+
 if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#ignore_sources = {}
-  let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
-  let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
-  let g:deoplete#sources#go#align_class = 1
-
-
   " Use partial fuzzy matches like YouCompleteMe
   call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
   call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
   call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 endif
 
-" ==================== vim-mardownfmt ====================
+" ==================== vim-markdownfmt ====================
 "let g:markdownfmt_autosave = 1
 
 " ==================== vim-multiple-cursors ====================
@@ -652,7 +670,7 @@ endfunction
 "     \ FindConfig('--config', 'tox.ini', expand('<afile>:p:h', 1), '=')
 
 " Remove a warning that YouCompleteMe is causing.
-silent! py3 pass
+" silent! py3 pass
 
 " fzf https://vimawesome.com/plugin/fzf
 set rtp+=/usr/local/opt/fzf

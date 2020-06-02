@@ -1,3 +1,4 @@
+ignore = dirty
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree.git
@@ -175,3 +176,34 @@
 [submodule "bundle/emmet-vim"]
 	path = bundle/emmet-vim
 	url = git@github.com:mattn/emmet-vim.git
+[submodule "bundle/vim-react-snippets"]
+	path = bundle/vim-react-snippets
+	url = git@github.com:mlaursen/vim-react-snippets.git
+[submodule "bundle/vim-prettier"]
+	path = bundle/vim-prettier
+	url = git@github.com:prettier/vim-prettier.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "bundle/autocomplete-flow"]
+	path = bundle/autocomplete-flow
+	url = https://github.com/wokalski/autocomplete-flow
+	ignore = dirty
+[submodule "bundle/vim-hug-neovim-rpc"]
+	path = bundle/vim-hug-neovim-rpc
+	url = git@github.com:roxma/vim-hug-neovim-rpc.git
+[submodule "bundle/nvim-yarp"]
+	path = bundle/nvim-yarp
+	url = git@github.com:roxma/nvim-yarp.git
+[submodule "bundle/vim-notes"]
+	path = bundle/vim-notes
+	url = git@github.com:xolox/vim-notes.git
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = git@github.com:xolox/vim-misc.git
+[submodule "bundle/vim-easymotion"]
+	path = bundle/vim-easymotion
+	url = git@github.com:easymotion/vim-easymotion.git
