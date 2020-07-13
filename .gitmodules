@@ -192,9 +192,6 @@ ignore = dirty
 	path = bundle/autocomplete-flow
 	url = https://github.com/wokalski/autocomplete-flow
 	ignore = dirty
-[submodule "bundle/vim-hug-neovim-rpc"]
-	path = bundle/vim-hug-neovim-rpc
-	url = git@github.com:roxma/vim-hug-neovim-rpc.git
 [submodule "bundle/nvim-yarp"]
 	path = bundle/nvim-yarp
 	url = git@github.com:roxma/nvim-yarp.git

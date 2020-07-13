@@ -176,10 +176,10 @@ au WinEnter * set cursorline
 set cursorline
 
 set termguicolors
-" colorscheme solarized8
+colorscheme solarized8
 " colorscheme base16-default-dark
 " colorscheme nofrils-dark
-colorscheme gruvbox
+" colorscheme gruvbox
 
 
 " let g:hybrid_use_Xresources = 1
@@ -367,6 +367,9 @@ autocmd FileType gitconfig,sh,toml set noexpandtab
 " python indent
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
 
+" python interpreter
+" let g:python3_host_prog = '/usr/local/bin/python3'
+
 " markdown indent
 autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 smarttab expandtab
 
@@ -473,6 +476,10 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " neovim specific
+if !has('nvim') " Vim 8 only
+	pythonx import neovim
+endif
+
 if has('nvim')
   au FileType go nmap <leader>rt <Plug>(go-run-tab)
   au FileType go nmap <Leader>rs <Plug>(go-run-split)
@@ -543,8 +550,9 @@ if has('nvim')
   call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 endif
 
-" ==================== vim-markdownfmt ====================
-"let g:markdownfmt_autosave = 1
+" ==================== vim-notes ====================
+let g:notes_conceal_url=0
+let g:notes_conceal_code=0
 
 " ==================== vim-multiple-cursors ====================
 let g:multi_cursor_use_default_mapping=0
