@@ -71,6 +71,7 @@ ignore = dirty
 [submodule "bundle/deoplete-go"]
 	path = bundle/deoplete-go
 	url = https://github.com/zchee/deoplete-go.git
+	dirty = true
 [submodule "bundle/vim-buftabline"]
 	path = bundle/vim-buftabline
 	url = https://github.com/ap/vim-buftabline.git
