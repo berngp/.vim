@@ -129,9 +129,6 @@ ignore = dirty
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
-[submodule "bundle/vim-ruby-refactoring"]
-	path = bundle/vim-ruby-refactoring
-	url = git@github.com:ecomba/vim-ruby-refactoring.git
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
 	url = git@github.com:thoughtbot/vim-rspec.git
@@ -150,6 +147,7 @@ ignore = dirty
 [submodule "bundle/yats.vim"]
 	path = bundle/yats.vim
 	url = git@github.com:HerringtonDarkholme/yats.vim.git
+	dirty = true
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
