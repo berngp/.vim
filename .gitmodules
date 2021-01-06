@@ -48,7 +48,7 @@ ignore = dirty
 	url = https://github.com/fatih/vim-nginx.git
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
+	url = git@github.com:Raimondi/delimitMate.git
 [submodule "bundle/vim-bbye"]
 	path = bundle/vim-bbye
 	url = https://github.com/moll/vim-bbye.git
@@ -144,10 +144,6 @@ ignore = dirty
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
-[submodule "bundle/yats.vim"]
-	path = bundle/yats.vim
-	url = git@github.com:HerringtonDarkholme/yats.vim.git
-	dirty = true
 [submodule "bundle/fzf.vim"]
 	path = bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
@@ -206,3 +202,10 @@ ignore = dirty
 [submodule "bundle/vim-hug-neovim-rpc"]
 	path = bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule "bundle/material.vim"]
+	path = bundle/material.vim
+	url = git@github.com:kaicataldo/material.vim.git
+	branch = main
+[submodule "bundle/vim-javacomplete2"]
+	path = bundle/vim-javacomplete2
+	url = https://github.com/artur-shaik/vim-javacomplete2.git

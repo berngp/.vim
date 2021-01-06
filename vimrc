@@ -7,7 +7,20 @@ filetype off                  " required
 
 filetype plugin indent on    " required
 
-"
+highlight clear
+
+if exists('syntax_on')
+  syntax reset
+endif
+
+syntax enable
+if has('gui_running')
+  set transparency=3
+  " fix js regex syntax
+  set regexpengine=1
+  syntax enable
+endif
+
 " Settings
 "
 set backspace=indent,eol,start     " Makes backspace key more powerful.
@@ -164,23 +177,30 @@ if has("autocmd")
 else
 endif " has("autocmd")
 
-syntax enable
-if has('gui_running')
-  set transparency=3
-  " fix js regex syntax
-  set regexpengine=1
-  syntax enable
-endif
 au WinLeave * set nocursorline
 au WinEnter * set cursorline
 set cursorline
 
-set termguicolors
-colorscheme solarized8
-" colorscheme base16-default-dark
-" colorscheme nofrils-dark
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+" Material Settings
+" https://github.com/kaicataldo/material.vim
+" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+" let g:material_terminal_italics = 1
+"
+let g:material_theme_style = 'default'
+let g:material_theme_style = get(g:, 'material_theme_style', 'darker')
+let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
+"" ------------------
+
+colorscheme material
+" colorscheme solarized8
+" colorscheme solarized
 " colorscheme gruvbox
 
+"" ------------------
 
 " let g:hybrid_use_Xresources = 1
 " let g:rehash256 = 1
@@ -344,6 +364,9 @@ augroup END
 
 au FileType nginx setlocal noet ts=4 sw=4 sts=4
 
+"Java settings
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 " autocmd BufEnter *.go colorscheme nofrils-dark
@@ -476,9 +499,9 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " neovim specific
-if !has('nvim') " Vim 8 only
-	pythonx import neovim
-endif
+" if !has('nvim') " Vim 8 only
+" 	pythonx import neovim
+" endif
 
 if has('nvim')
   au FileType go nmap <leader>rt <Plug>(go-run-tab)
@@ -589,7 +612,8 @@ autocmd BufWritePre *.cpp,*.hpp pyf /usr/share/vim/addons/syntax/clang-format-3.
 
 " =================== vim-airline ========================
 
-let g:airline_theme='solarized'
+let g:airline_theme='material'
+" let g:airline_theme='solarized'
 
 " set to use powerline fonts when not in a ssh session
 let g:remoteSession = ($STY == "")
@@ -655,9 +679,9 @@ let g:syntastic_puppet_checkers=['puppetlint']
 
 let g:syntastic_ruby_checkers=['rubocop', 'mri']
 
-let g:syntastic_java_maven_executable='/opt/boxen/homebrew/bin/mvn'
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 1
+" let g:syntastic_java_maven_executable='/opt/boxen/homebrew/bin/mvn'
+" let g:syntastic_java_checkers=['javac']
+" let g:syntastic_java_javac_config_file_enabled = 1
 
 let g:syntastic_sh_checker_args='-x'
 
