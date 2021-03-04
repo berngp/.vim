@@ -81,9 +81,6 @@ ignore = dirty
 [submodule "bundle/vim-hclfmt"]
 	path = bundle/vim-hclfmt
 	url = https://github.com/fatih/vim-hclfmt.git
-[submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
@@ -177,6 +174,7 @@ ignore = dirty
 [submodule "bundle/vim-prettier"]
 	path = bundle/vim-prettier
 	url = git@github.com:prettier/vim-prettier.git
+	ignore = dirty
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
@@ -209,3 +207,9 @@ ignore = dirty
 [submodule "bundle/vim-javacomplete2"]
 	path = bundle/vim-javacomplete2
 	url = https://github.com/artur-shaik/vim-javacomplete2.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "bundle/vim-material"]
+	path = bundle/vim-material
+	url = git@github.com:hzchirs/vim-material.git

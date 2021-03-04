@@ -185,20 +185,47 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-" Material Settings
-" https://github.com/kaicataldo/material.vim
-" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-" let g:material_terminal_italics = 1
-"
-let g:material_theme_style = 'default'
-let g:material_theme_style = get(g:, 'material_theme_style', 'darker')
-let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
 "" ------------------
+" base16
+" colorscheme base16-material
+" colorscheme base16-material-darker
 
-colorscheme material
+" colorscheme material
 " colorscheme solarized8
 " colorscheme solarized
 " colorscheme gruvbox
+
+" ---------------------
+" Material Settings
+" https://github.com/kaicataldo/material.vim
+" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+" let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
+" ---------------------
+
+" Autodark block
+let hour = strftime('%H')
+if 6 <= hour && hour < 18
+  "material theme
+  "let g:material_theme_style = 'lighter'
+  " vim-material {
+  let g:material_style='palenight'
+  set background=light
+  colorscheme vim-material
+  " }
+  " base16
+  " colorscheme base16-material-lighter
+else
+  "material theme
+  " let g:material_theme_style = 'darker'
+  " vim-material {
+  set background=dark
+  colorscheme vim-material
+  " }
+  " base16
+  " colorscheme base16-material-darker
+endif
+
+let g:material_terminal_italics = 1
 
 "" ------------------
 
@@ -380,6 +407,9 @@ autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 " lua settings
 autocmd BufNewFile,BufRead *.lua setlocal noet ts=4 sw=4 sts=4
 
+" CSS SCSS
+au FileType css,scss let b:prettier_exec_cmd = "prettier-stylelint"
+
 " Dockerfile settings
 autocmd FileType dockerfile set noexpandtab
 
@@ -528,7 +558,7 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 " For toggling
 nmap <C-n> :NERDTreeToggle<CR>
 noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+noremap <Leader>z :NERDTreeFind<cr>
 
 let NERDTreeShowHidden=1
 
@@ -611,10 +641,6 @@ imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
 autocmd BufWritePre *.cpp,*.hpp pyf /usr/share/vim/addons/syntax/clang-format-3.8.py
 
 " =================== vim-airline ========================
-
-let g:airline_theme='material'
-" let g:airline_theme='solarized'
-
 " set to use powerline fonts when not in a ssh session
 let g:remoteSession = ($STY == "")
 if !g:remoteSession
@@ -661,6 +687,7 @@ let g:rooter_patterns = ['Rakefile', '.git/', 'sbtw', 'gradlew']
 " ==================== syntastic =========================
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -706,5 +733,20 @@ endfunction
 
 " fzf https://vimawesome.com/plugin/fzf
 set rtp+=/usr/local/opt/fzf
+
+" Inspired from https://dev.to/iggredible/how-to-search-faster-in-vim-with-fzf-vim-36ko
+" PLUGIN: FZF
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader>/ :BLines<CR>
+nnoremap <silent> <Leader>' :Marks<CR>
+nnoremap <silent> <Leader>g :Commits<CR>
+nnoremap <silent> <Leader>H :Helptags<CR>
+nnoremap <silent> <Leader>hh :History<CR>
+nnoremap <silent> <Leader>h: :History:<CR>
+nnoremap <silent> <Leader>h/ :History/<CR>
+
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 " vim:ts=2:sw=2:et
