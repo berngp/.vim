@@ -205,24 +205,27 @@ endif
 " Autodark block
 let hour = strftime('%H')
 if 6 <= hour && hour < 18
-  "material theme
-  "let g:material_theme_style = 'lighter'
   " vim-material {
-  let g:material_style='palenight'
-  set background=light
-  colorscheme vim-material
-  " }
-  " base16
-  " colorscheme base16-material-lighter
+  " let g:material_style='palenight'
+  " set background=light
+  " colorscheme vim-material
+  "}
+  "material.vim {
+  let g:material_terminal_italics = 1
+  let g:material_theme_style = 'lighter'
+  colorscheme material
+  "}
 else
-  "material theme
-  " let g:material_theme_style = 'darker'
   " vim-material {
-  set background=dark
-  colorscheme vim-material
-  " }
-  " base16
-  " colorscheme base16-material-darker
+  " let g:material_style='oceanic'
+  " set background=dark
+  " colorscheme vim-material
+  "}
+  "material.vim {
+  let g:material_terminal_italics = 1
+  let g:material_theme_style = 'ocean'
+  colorscheme material
+  "}
 endif
 
 let g:material_terminal_italics = 1
